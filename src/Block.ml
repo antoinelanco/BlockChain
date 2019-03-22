@@ -5,7 +5,7 @@ open Printf
 
 
 let rec find_nonce id time previous data diff nonce =
-  let s = Printf.sprintf "%d%d%s%d%s" id time previous nonce (transaction_to_string data) in
+  let s = Printf.sprintf "%d%f%s%d%s" id time previous nonce (transaction_to_string data) in
   let hash = Digestif.SHA512.digest_bytes (Bytes.of_string s) |> Digestif.SHA512.to_hex in
 
   let zero = String.make diff '0' in
@@ -20,7 +20,7 @@ let createBlock id time previous data diff =
 
   let nonce = find_nonce id time previous data diff 0 in
 
-  let s = Printf.sprintf "%d%d%s%d%s" id time previous nonce (transaction_to_string data) in
+  let s = Printf.sprintf "%d%f%s%d%s" id time previous nonce (transaction_to_string data) in
   let hash = Digestif.SHA512.digest_bytes (Bytes.of_string s) |> Digestif.SHA512.to_hex in
 
 
@@ -39,7 +39,7 @@ let print_block b =
   Printf.printf
 "{
   id_block: %d
-  timestamp: %d
+  timestamp: %f
   previousHash: %s
   hash: %s
   nonce: %d

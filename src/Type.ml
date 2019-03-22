@@ -12,7 +12,7 @@ type transaction =
 type block =
   {
     id_b: int;
-    timestamp: int;
+    timestamp: float;
     previousHash: string;
     hash: string;
     nonce: int;
