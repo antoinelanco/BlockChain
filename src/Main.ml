@@ -3,7 +3,7 @@ open Type
 open Block
 
 let a = Valide
-let b = {id = 10; sender = 10; recever = 20; amount = 10; status = a}
-
-let t = [1;2;3;4;5]
-let () = print_tab t string_of_int
+let t = {id_t = 10; sender = 10; recever = 20; amount = 10; status = a}
+let b = createBlock 1 10 "0" t 5
+let () = print_block b
+let () = print_string "\n"

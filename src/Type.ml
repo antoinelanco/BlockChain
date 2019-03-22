@@ -2,7 +2,7 @@ type s = Valide | Fail | Pending
 
 type transaction =
   {
-    id: int;
+    id_t: int;
     sender: int;
     recever: int;
     amount: int;
@@ -11,10 +11,15 @@ type transaction =
 
 type block =
   {
-    id : int;
+    id_b: int;
     timestamp: int;
-    previousHash: int;
-    hash: int;
+    previousHash: string;
+    hash: string;
     nonce: int;
     data: transaction
   }
+
+let status_to_string = function
+  | Valide -> "Valide"
+  | Fail -> "Fail"
+  | Pending -> "Pending"
