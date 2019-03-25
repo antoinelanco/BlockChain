@@ -2,9 +2,8 @@ type s = Valide | Fail | Pending
 
 type transaction =
   {
-    id_t: int;
     sender: int;
-    recever: int;
+    receiver: int;
     amount: int;
     status: s
   }
@@ -18,6 +17,8 @@ type block =
     nonce: int;
     data: transaction
   }
+
+type blockChain = block list
 
 let status_to_string = function
   | Valide -> "Valide"
